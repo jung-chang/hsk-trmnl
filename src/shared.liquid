@@ -1,0 +1,103 @@
+{% template flashcard %}
+  <div class="layout layout--col layout--center flashcard flashcard--{{ size }}">
+    <span class="label label--small flashcard__level">HSK {{ hsk }}</span>
+    <span class="flashcard__hanzi">{{ traditional }}</span>
+    <span class="flashcard__pinyin">{{ pinyin }}</span>
+    <div class="flashcard__rule"></div>
+    <span class="flashcard__english" data-clamp="4">{{ english }}</span>
+  </div>
+
+  <div class="title_bar">
+    <span class="title">中文詞卡</span>
+    <span class="instance">Traditional Chinese</span>
+  </div>
+{% endtemplate %}
+
+<style>
+  .flashcard {
+    text-align: center;
+    gap: 8px;
+  }
+
+  .flashcard__level {
+    border: 2px solid #000;
+    border-radius: 5px;
+    padding: 2px 9px;
+    letter-spacing: 0.08em;
+  }
+
+  .flashcard__hanzi {
+    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    font-size: 112px;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+  }
+
+  .flashcard__pinyin {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.15;
+  }
+
+  .flashcard__rule {
+    width: 72px;
+    border-top: 3px solid #000;
+    margin: 5px 0;
+  }
+
+  .flashcard__english {
+    max-width: 680px;
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 1.22;
+  }
+
+  .flashcard--half-horizontal .flashcard__hanzi {
+    font-size: 68px;
+  }
+
+  .flashcard--half-horizontal .flashcard__pinyin {
+    font-size: 22px;
+  }
+
+  .flashcard--half-horizontal .flashcard__english {
+    font-size: 18px;
+    max-width: 620px;
+  }
+
+  .flashcard--half-vertical .flashcard__hanzi {
+    font-size: 74px;
+  }
+
+  .flashcard--half-vertical .flashcard__pinyin {
+    font-size: 23px;
+  }
+
+  .flashcard--half-vertical .flashcard__english {
+    font-size: 19px;
+    max-width: 320px;
+  }
+
+  .flashcard--quadrant {
+    gap: 5px;
+  }
+
+  .flashcard--quadrant .flashcard__hanzi {
+    font-size: 55px;
+  }
+
+  .flashcard--quadrant .flashcard__pinyin {
+    font-size: 19px;
+  }
+
+  .flashcard--quadrant .flashcard__rule {
+    width: 48px;
+    margin: 2px 0;
+  }
+
+  .flashcard--quadrant .flashcard__english {
+    font-size: 16px;
+    max-width: 300px;
+  }
+</style>

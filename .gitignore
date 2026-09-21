@@ -165,3 +165,13 @@ dist
 .env*
 !.env.example
 .wrangler/
+
+# trmnlp build output
+
+_build/
+
+# Local editor files
+
+.DS_Store
+.idea/
+.vscode/
