@@ -1,10 +1,28 @@
 {% template flashcard %}
+  {% case size %}
+    {% when "full" %}
+      {% assign hanzi_size = "text--giga" %}
+      {% assign pinyin_size = "text--xlarge" %}
+      {% assign english_size = "text--xlarge" %}
+    {% when "half-horizontal" %}
+      {% assign hanzi_size = "text--mega" %}
+      {% assign pinyin_size = "text--large" %}
+      {% assign english_size = "text--base" %}
+    {% when "half-vertical" %}
+      {% assign hanzi_size = "text--mega" %}
+      {% assign pinyin_size = "text--large" %}
+      {% assign english_size = "text--large" %}
+    {% else %}
+      {% assign hanzi_size = "text--xxxlarge" %}
+      {% assign pinyin_size = "text--large" %}
+      {% assign english_size = "text--base" %}
+  {% endcase %}
   <div class="layout layout--col layout--center flashcard flashcard--{{ size }}">
     <span class="label label--small flashcard__level">HSK {{ hsk }}</span>
-    <span class="flashcard__hanzi">{{ traditional }}</span>
-    <span class="flashcard__pinyin">{{ pinyin }}</span>
+    <span class="{{ hanzi_size }} text--bold flashcard__hanzi">{{ traditional }}</span>
+    <span class="{{ pinyin_size }} flashcard__pinyin">{{ pinyin }}</span>
     <div class="flashcard__rule"></div>
-    <span class="flashcard__english" data-clamp="4">{{ english }}</span>
+    <span class="{{ english_size }} flashcard__english" data-clamp="4">{{ english }}</span>
   </div>
 
   <div class="title_bar">
@@ -28,14 +46,12 @@
 
   .flashcard__hanzi {
     font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
-    font-size: 112px;
     font-weight: 700;
     line-height: 1.05;
     letter-spacing: 0.02em;
   }
 
   .flashcard__pinyin {
-    font-size: 30px;
     font-weight: 500;
     line-height: 1.15;
   }
@@ -48,47 +64,20 @@
 
   .flashcard__english {
     max-width: 680px;
-    font-size: 25px;
     font-weight: 500;
     line-height: 1.22;
   }
 
-  .flashcard--half-horizontal .flashcard__hanzi {
-    font-size: 68px;
-  }
-
-  .flashcard--half-horizontal .flashcard__pinyin {
-    font-size: 22px;
-  }
-
   .flashcard--half-horizontal .flashcard__english {
-    font-size: 18px;
     max-width: 620px;
   }
 
-  .flashcard--half-vertical .flashcard__hanzi {
-    font-size: 74px;
-  }
-
-  .flashcard--half-vertical .flashcard__pinyin {
-    font-size: 23px;
-  }
-
   .flashcard--half-vertical .flashcard__english {
-    font-size: 19px;
     max-width: 320px;
   }
 
   .flashcard--quadrant {
     gap: 5px;
-  }
-
-  .flashcard--quadrant .flashcard__hanzi {
-    font-size: 55px;
-  }
-
-  .flashcard--quadrant .flashcard__pinyin {
-    font-size: 19px;
   }
 
   .flashcard--quadrant .flashcard__rule {
@@ -97,7 +86,6 @@
   }
 
   .flashcard--quadrant .flashcard__english {
-    font-size: 16px;
     max-width: 300px;
   }
 </style>

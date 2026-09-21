@@ -118,11 +118,9 @@ the existing plugin instead of creating another one.
 1. `src/settings.yml` already points to the deployed Worker. To restrict the
    plugin, change the query to `?hsk=1`, `?hsk=2`, `?hsk=3`, or another
    supported combination.
-2. Upload the ready-made `hsk-trmnl-plugin.zip` from the repository root, or
-   import/push the source files with your normal TRMNL workflow. With the
-   official `trmnlp` development tool, install it with
-   `gem install trmnl_preview`, then run `trmnlp serve` to preview and
-   `trmnlp push` to upload.
+2. Push changes to `main` to publish the plugin automatically through GitHub
+   Actions. For a manual upload, use `./bin/trmnlp push` after authenticating
+   with `./bin/trmnlp login`.
 3. In TRMNL, force a refresh once and confirm the merge variables contain
    `traditional`, `pinyin`, `english`, and `hsk`.
 
